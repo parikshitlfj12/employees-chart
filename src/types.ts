@@ -39,10 +39,10 @@ export interface AuthorWorklog {
   rows: AuthorWorklogRow[];
 }
 
-export interface Data {
+export interface EmployeeData {
   AuthorWorklog: AuthorWorklog;
 }
 
-export interface RootObject {
-  data: Data;
+export interface RootEmployeeObject {
+  data: EmployeeData;
 }

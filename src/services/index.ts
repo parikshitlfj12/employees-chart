@@ -1,4 +1,4 @@
-import { RootObject } from "../types";
+import { RootEmployeeObject } from "../types";
 
 // Fetch data from mock File
 export const fetchEmployeeData = async () => {
@@ -16,7 +16,7 @@ export const fetchEmployeeData = async () => {
       );
     }
 
-    const jsonData: RootObject = await response.json();
+    const jsonData: RootEmployeeObject = await response.json();
     return jsonData;
   } catch (error) {
     console.log(error);

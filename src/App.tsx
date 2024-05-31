@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
-import './App.css';
-import { fetchEmployeeData } from './services';
+import React from "react";
+import "./App.css";
+import MainTab from "./components/mainTab";
 
-function App() {
+const App = () => {
 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      return await fetchEmployeeData()
-    }
-    
-    fetchData()
-  }, [])
   return (
-    <div className="App">
-      Hello
+    <div className="app-container">
+      <div className="main-tab">
+        <MainTab />
+      </div>
+      <div className="chat-container">
+
+        Chat Container
+      </div>
+      <div className="conversation-panel">
+        Conversation panel
+      </div>
     </div>
   );
-}
+};
 
 export default App;
