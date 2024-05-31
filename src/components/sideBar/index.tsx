@@ -37,7 +37,13 @@ const MainTab: React.FC = () => {
   return (
     <div className="main-container">
       <div className="main-tab-inner-container">
-
+        <div className="search-bar-container">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search"
+          />
+        </div>
         <TabItem
           icon={<DashboardOutlined />}
           label="Dashboard"
