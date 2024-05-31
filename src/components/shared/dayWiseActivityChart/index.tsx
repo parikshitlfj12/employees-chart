@@ -58,7 +58,6 @@ const BarChart: React.FC<BarChartProps> = ({ data, activityMeta }) => {
                 labelSkipWidth={12}
                 labelSkipHeight={12}
                 labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
-                // Remove legends prop to remove right-hand side color boxes
                 animate={true}
                 motionConfig="gentle"
                 role="application"
