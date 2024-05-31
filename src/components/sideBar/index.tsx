@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "./sideBar.css";
-import Explore from "../../assets/Explore.svg";
-import Dashboard from "../../assets/message-text.svg";
-import Profile from "../../assets/Profile.svg";
-
+import { StarBorderOutlined, DashboardOutlined, CalendarMonthOutlined, ScheduleSendOutlined, DocumentScanner, PersonAddAlt, AirplaneTicketOutlined, WorkspacePremiumOutlined } from '@mui/icons-material';
 
 enum TABS {
-  MESSAGES = "MESSAGES",
+  ONBOARDING = "ONBOARDING",
   DASHBOARD = "DASHBOARD",
-  ADMIN_PROFILE = "ADMIN_PROFILE",
+  CALENDAR = "CALENDAR",
+  SCHEDULE = "SCHEDULE",
+  CLIENTS = "CLIENTS",
+  DOCUMENTS = "DOCUMENTS"
 }
 
 interface TabItemProps {
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   isSelected: boolean;
   onClick: () => void;
@@ -25,7 +25,7 @@ const TabItem: React.FC<TabItemProps> = ({ icon, label, isSelected, onClick, isD
       className={`tab-item ${isSelected ? "selected" : ""} ${isDisabled ? "disabled" : ""}`}
       onClick={!isDisabled ? onClick : undefined}
     >
-      <img src={icon} alt="main menu" />
+      {icon}
       <div className="label">{label}</div>
     </div>
   );
@@ -35,29 +35,67 @@ const MainTab: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<TABS>(TABS.DASHBOARD);
 
   return (
-    <div className="main-tab-container">
+    <div className="main-container">
+      <div className="main-tab-inner-container">
 
-      <TabItem
-        icon={Explore}
-        label="Dashboard"
-        isSelected={selectedTab === TABS.DASHBOARD}
-        onClick={() => setSelectedTab(TABS.DASHBOARD)}
-      />
-      <TabItem
+        <TabItem
+          icon={<DashboardOutlined />}
+          label="Dashboard"
+          isSelected={selectedTab === TABS.DASHBOARD}
+          onClick={() => setSelectedTab(TABS.DASHBOARD)}
+        />
+        <TabItem
+          icon={<AirplaneTicketOutlined />}
+          label="Onboarding"
+          isSelected={selectedTab === TABS.ONBOARDING}
+          onClick={() => setSelectedTab(TABS.ONBOARDING)}
+          isDisabled={true}
+        />
+        <TabItem
+          icon={<CalendarMonthOutlined />}
+          label="Calendar"
+          isSelected={selectedTab === TABS.CALENDAR}
+          onClick={() => setSelectedTab(TABS.CALENDAR)}
+          isDisabled={true}
+        />
+        <TabItem
+          icon={<ScheduleSendOutlined />}
+          label="Schedule"
+          isSelected={selectedTab === TABS.SCHEDULE}
+          onClick={() => setSelectedTab(TABS.SCHEDULE)}
+          isDisabled={true}
+        />
+        <TabItem
+          icon={<PersonAddAlt />}
+          label="Clients"
+          isSelected={selectedTab === TABS.CLIENTS}
+          onClick={() => setSelectedTab(TABS.CLIENTS)}
+          isDisabled={true}
+        />
+        <TabItem
+          icon={<DocumentScanner />}
+          label="Documents"
+          isSelected={selectedTab === TABS.DOCUMENTS}
+          onClick={() => setSelectedTab(TABS.DOCUMENTS)}
+          isDisabled={true}
+        />
 
-        icon={Dashboard}
-        label="Messages"
-        isSelected={selectedTab === TABS.MESSAGES}
-        onClick={() => setSelectedTab(TABS.MESSAGES)}
-        isDisabled={true}
-      />
-      <TabItem
-        icon={Profile}
-        label="Admin Profile"
-        isSelected={selectedTab === TABS.ADMIN_PROFILE}
-        onClick={() => setSelectedTab(TABS.ADMIN_PROFILE)}
-        isDisabled={true}
-      />
+
+      </div>
+      <div className="premium-container">
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+
+          <WorkspacePremiumOutlined fontSize="large" />
+          <div className="premium-label">Efficient Employee Management</div>
+
+        </div>
+        <div
+          className={`premium-button`}
+        >
+          <div className="label">Upgrade to Premium</div>
+          <StarBorderOutlined />
+        </div>
+      </div>
     </div>
   );
 };
