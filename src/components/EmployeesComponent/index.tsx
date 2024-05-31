@@ -3,6 +3,33 @@ import "./EmployeesComponent.css";
 import { RootEmployeeObject, AuthorWorklogRow } from "../../types";
 import { Menu } from '@mui/icons-material';
 
+const SummaryCards = () => {
+    const cards = [
+        { title: 'Onboarding', count: 171, change: '+15% increase vs last month', bg: 'bg-primary' },
+        { title: 'Onboarded', count: 128, change: '+15% increase vs last month', bg: 'bg-success' },
+        { title: 'Drafts', count: 54, change: '+15% increase vs last month', bg: 'bg-warning' },
+        { title: 'Reports', count: 322, change: '-2% decrease vs last month', bg: 'bg-danger' },
+    ];
+
+    return (
+        <div className="summary-container">
+            {cards.map((card, index) => (
+                <div className="summary" key={index}>
+                    <div className={`card text-white mb-3 ${card.bg}`}>
+                        <div className="card-header">{card.title}</div>
+                        <div className="card-body">
+                            <h5 className="card-title">{card.count}</h5>
+                            <p className="card-text">{card.change}</p>
+                        </div>
+                    </div>
+                </div>
+            ))
+            }
+        </div >
+    );
+};
+
+
 const App: React.FC = () => {
     const [data, setData] = useState<RootEmployeeObject | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -56,10 +83,13 @@ const App: React.FC = () => {
 
     return (
         <div className="container">
-            <div className="title">Employee's Details</div>
+            <SummaryCards />
+            <div style={{textAlign:"start", width:"100%"}}>
+                <h1>Employee's Details</h1>
+            </div>
             <div className="employee-table">
                 <div className="filters">
-                    <select onChange={(e) => handleEmployeeSelect(e.target.value)}>
+                    <select style={{backgroundColor: "#D3D3D3"}} onChange={(e) => handleEmployeeSelect(e.target.value)}>
                         <option value="">Select Employee</option>
                         {data?.data?.AuthorWorklog?.rows.map(employee => (
                             <option key={employee.name} value={employee.name}>
