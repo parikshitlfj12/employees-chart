@@ -32,7 +32,7 @@ const SummaryCards = () => {
     },
     {
       title: "Reporting Alerts",
-      count: 2,
+      count: 14,
       change: "-2% decrease vs last month",
       styles: {
         backgroundColor: "#F8D7DA",

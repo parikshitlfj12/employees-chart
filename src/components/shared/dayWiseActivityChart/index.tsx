@@ -57,6 +57,21 @@ const BarChart: React.FC<BarChartProps> = ({ data, activityMeta }) => {
       borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
       axisTop={null}
       axisRight={null}
+      axisBottom={{
+        tickSize: 5,
+        tickPadding: 5,
+        legend: "Date",
+        legendPosition: "middle",
+        legendOffset: 40,
+      }}
+      axisLeft={{
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: "Count",
+        legendPosition: "middle",
+        legendOffset: -40,
+      }}
       labelSkipWidth={12}
       labelSkipHeight={12}
       labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}

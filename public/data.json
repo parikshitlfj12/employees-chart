@@ -57,11 +57,11 @@
             },
             {
               "name": "Incident Alerts",
-              "value": "0"
+              "value": "3"
             },
             {
               "name": "Incidents Resolved",
-              "value": "0"
+              "value": "2"
             }
           ],
           "dayWiseActivity": [
@@ -95,12 +95,12 @@
                     "fillColor": "#0396A6"
                   },
                   {
-                    "count": "0",
+                    "count": "2",
                     "label": "Incident Alerts",
                     "fillColor": "#5F50A9"
                   },
                   {
-                    "count": "0",
+                    "count": "1",
                     "label": "Incidents Resolved",
                     "fillColor": "#8F3519"
                   }
@@ -137,12 +137,12 @@
                     "fillColor": "#0396A6"
                   },
                   {
-                    "count": "0",
+                    "count": "1",
                     "label": "Incident Alerts",
                     "fillColor": "#5F50A9"
                   },
                   {
-                    "count": "0",
+                    "count": "1",
                     "label": "Incidents Resolved",
                     "fillColor": "#8F3519"
                   }
@@ -687,11 +687,11 @@
             },
             {
               "name": "Incident Alerts",
-              "value": "0"
+              "value": "4"
             },
             {
               "name": "Incidents Resolved",
-              "value": "0"
+              "value": "2"
             }
           ],
           "dayWiseActivity": [
@@ -725,12 +725,12 @@
                     "fillColor": "#0396A6"
                   },
                   {
-                    "count": "0",
+                    "count": "1",
                     "label": "Incident Alerts",
                     "fillColor": "#5F50A9"
                   },
                   {
-                    "count": "0",
+                    "count": "1",
                     "label": "Incidents Resolved",
                     "fillColor": "#8F3519"
                   }
@@ -1317,11 +1317,11 @@
             },
             {
               "name": "Incident Alerts",
-              "value": "0"
+              "value": "15"
             },
             {
               "name": "Incidents Resolved",
-              "value": "0"
+              "value": "10"
             }
           ],
           "dayWiseActivity": [
@@ -1355,12 +1355,12 @@
                     "fillColor": "#0396A6"
                   },
                   {
-                    "count": "0",
+                    "count": "6",
                     "label": "Incident Alerts",
                     "fillColor": "#5F50A9"
                   },
                   {
-                    "count": "0",
+                    "count": "3",
                     "label": "Incidents Resolved",
                     "fillColor": "#8F3519"
                   }
@@ -1523,12 +1523,12 @@
                     "fillColor": "#0396A6"
                   },
                   {
-                    "count": "0",
+                    "count": "4",
                     "label": "Incident Alerts",
                     "fillColor": "#5F50A9"
                   },
                   {
-                    "count": "0",
+                    "count": "3",
                     "label": "Incidents Resolved",
                     "fillColor": "#8F3519"
                   }
