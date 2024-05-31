@@ -10,15 +10,11 @@
 }
 
 .main-tab {
-  flex: 0.2;
+  flex: .3;
 }
 
-.chat-container {
+.chart-container {
   height: 100%;
-  flex: 1.5;
+  flex: 5;
   border-left: 1px solid rgb(17 0, 163, 156);
-}
-
-.conversation-panel {
-  flex: 4;
 }

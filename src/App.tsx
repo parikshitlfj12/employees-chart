@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import MainTab from "./components/mainTab";
+import ChartComponent from "./components/chartComponent";
 
 const App = () => {
 
@@ -9,12 +10,8 @@ const App = () => {
       <div className="main-tab">
         <MainTab />
       </div>
-      <div className="chat-container">
-
-        Chat Container
-      </div>
-      <div className="conversation-panel">
-        Conversation panel
+      <div className="chart-container">
+        <ChartComponent />
       </div>
     </div>
   );
