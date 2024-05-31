@@ -1,7 +1,7 @@
 import "./App.css";
-import MainTab from "./components/sideBar";
-import ChartComponent from "./components/chartComponent";
-import Navbar from "./components/navbar";
+import MainTab from "./components/shared/sideBar";
+import EmployeesComponent from "./components/EmployeesComponent";
+import Navbar from "./components/shared/navbar";
 
 const App = () => {
 
@@ -13,7 +13,7 @@ const App = () => {
           <MainTab />
         </div>
         <div className="chart-container">
-          <ChartComponent />
+          <EmployeesComponent />
         </div>
       </div>
     </>
