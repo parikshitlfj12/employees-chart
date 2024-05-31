@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./mainTab.css";
+import "./sideBar.css";
 import Explore from "../../assets/Explore.svg";
 import Dashboard from "../../assets/message-text.svg";
 import Profile from "../../assets/Profile.svg";

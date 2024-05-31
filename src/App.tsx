@@ -1,19 +1,22 @@
-import React from "react";
 import "./App.css";
-import MainTab from "./components/mainTab";
+import MainTab from "./components/sideBar";
 import ChartComponent from "./components/chartComponent";
+import Navbar from "./components/navbar";
 
 const App = () => {
 
   return (
-    <div className="app-container">
-      <div className="main-tab">
-        <MainTab />
+    <>
+      <Navbar />
+      <div className="app-container">
+        <div className="main-tab">
+          <MainTab />
+        </div>
+        <div className="chart-container">
+          <ChartComponent />
+        </div>
       </div>
-      <div className="chart-container">
-        <ChartComponent />
-      </div>
-    </div>
+    </>
   );
 };
 
