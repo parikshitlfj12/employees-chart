@@ -4,6 +4,7 @@ import { RootEmployeeObject, AuthorWorklogRow } from "../../types";
 import { Launch } from "@mui/icons-material";
 import { fetchEmployeeData } from "../../services";
 import Loader from "../shared/loader";
+import { useNavigate } from "react-router-dom";
 
 const SummaryCards = () => {
   const cards = [
@@ -59,6 +60,7 @@ const SummaryCards = () => {
 };
 
 const EmployeeComponent: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<RootEmployeeObject | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
@@ -103,13 +105,12 @@ const EmployeeComponent: React.FC = () => {
     ));
   };
 
-  const goToEmployeeProfile = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
   if (loading) {
-    return <div><Loader /></div>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
 
   return (
@@ -157,7 +158,13 @@ const EmployeeComponent: React.FC = () => {
                 >
                   <td>{employee.name}</td>
                   {renderTotalActivity(employee.totalActivity)}
-                  <td onClick={goToEmployeeProfile}>
+                  <td
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      navigate(`/employee/${employee.name}`);
+                    }}
+                  >
                     <Launch sx={{ color: "#007bff" }} />
                   </td>
                 </tr>

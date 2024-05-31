@@ -1,6 +1,7 @@
 /* MainTab.css */
 
 .main-container {
+  position: fixed;
   height: 91vh;
   display: flex;
   flex-direction: column;

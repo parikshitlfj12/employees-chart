@@ -18,7 +18,6 @@ export const fetchEmployeeData = async ({ setData, setLoading }: any) => {
     }
 
     const jsonData: RootEmployeeObject = await response.json();
-    console.log("JSONDATA === ", jsonData)
     setData(jsonData);
     setLoading(false);
   } catch (error) {
@@ -30,6 +29,7 @@ export const fetchEmployeeData = async ({ setData, setLoading }: any) => {
 // Fetch employee data
 export const fetchEmployeeWithName = async ({
   employeeName,
+  setColorTheme,
   setData,
   setLoading,
 }: any) => {
@@ -55,8 +55,8 @@ export const fetchEmployeeWithName = async ({
       }
     );
 
-    console.log(updatedData)
-    setData(updatedData);
+    setData(updatedData?.[0]);
+    setColorTheme(jsonData?.data?.AuthorWorklog?.activityMeta)
     setLoading(false);
   } catch (error) {
     console.log(error);

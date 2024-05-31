@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import "./sideBar.css";
-import { StarBorderOutlined, DashboardOutlined, CalendarMonthOutlined, ScheduleSendOutlined, DocumentScanner, PersonAddAlt, AirplaneTicketOutlined, WorkspacePremiumOutlined } from '@mui/icons-material';
+import {
+  StarBorderOutlined,
+  DashboardOutlined,
+  CalendarMonthOutlined,
+  ScheduleSendOutlined,
+  DocumentScanner,
+  PersonAddAlt,
+  AirplaneTicketOutlined,
+  WorkspacePremiumOutlined,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 enum TABS {
   ONBOARDING = "ONBOARDING",
@@ -8,7 +18,7 @@ enum TABS {
   CALENDAR = "CALENDAR",
   SCHEDULE = "SCHEDULE",
   CLIENTS = "CLIENTS",
-  DOCUMENTS = "DOCUMENTS"
+  DOCUMENTS = "DOCUMENTS",
 }
 
 interface TabItemProps {
@@ -19,14 +29,30 @@ interface TabItemProps {
   isDisabled?: boolean;
 }
 
-const TabItem: React.FC<TabItemProps> = ({ icon, label, isSelected, onClick, isDisabled = false }) => {
+const TabItem: React.FC<TabItemProps> = ({
+  icon,
+  label,
+  isSelected,
+  onClick,
+  isDisabled = false,
+}) => {
+  const navigate = useNavigate();
   return (
     <div
-      className={`tab-item ${isSelected ? "selected" : ""} ${isDisabled ? "disabled" : ""}`}
+      className={`tab-item ${isSelected ? "selected" : ""} ${
+        isDisabled ? "disabled" : ""
+      }`}
       onClick={!isDisabled ? onClick : undefined}
     >
       {icon}
-      <div className="label">{label}</div>
+      <div
+        className="label"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        {label}
+      </div>
     </div>
   );
 };
@@ -38,11 +64,7 @@ const MainTab: React.FC = () => {
     <div className="main-container">
       <div className="main-tab-inner-container">
         <div className="search-bar-container">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Search"
-          />
+          <input type="text" className="search-bar" placeholder="Search" />
         </div>
         <TabItem
           icon={<DashboardOutlined />}
@@ -85,19 +107,20 @@ const MainTab: React.FC = () => {
           onClick={() => setSelectedTab(TABS.DOCUMENTS)}
           isDisabled={true}
         />
-
-
       </div>
       <div className="premium-container">
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <WorkspacePremiumOutlined fontSize="large" />
           <div className="premium-label">Efficient Employee Management</div>
-
         </div>
-        <div
-          className={`premium-button`}
-        >
+        <div className={`premium-button`}>
           <div className="label">Upgrade to Premium</div>
           <StarBorderOutlined />
         </div>
