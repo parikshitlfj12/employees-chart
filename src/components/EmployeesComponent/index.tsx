@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./EmployeesComponent.css";
 import { RootEmployeeObject, AuthorWorklogRow } from "../../types";
 import { Launch } from "@mui/icons-material";
+import { fetchEmployeeData } from "../../services";
+import Loader from "../shared/loader";
 
 const SummaryCards = () => {
   const cards = [
@@ -56,29 +58,17 @@ const SummaryCards = () => {
   );
 };
 
-const App: React.FC = () => {
+const EmployeeComponent: React.FC = () => {
   const [data, setData] = useState<RootEmployeeObject | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
 
   // Data fetching from the MOCK API
   useEffect(() => {
-    fetch("/data.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data: RootEmployeeObject) => {
-        console.log(data);
-        setData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-        setLoading(false);
-      });
+    const fetchData = async () => {
+      await fetchEmployeeData({ setData, setLoading });
+    };
+    fetchData();
   }, []);
 
   const handleEmployeeSelect = (employeeName: string) => {
@@ -119,7 +109,7 @@ const App: React.FC = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><Loader /></div>;
   }
 
   return (
@@ -182,4 +172,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default EmployeeComponent;
